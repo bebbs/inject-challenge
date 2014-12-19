@@ -1,4 +1,4 @@
-require 'inject_new'
+require 'my_inject'
 
 describe Array do
 
