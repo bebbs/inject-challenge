@@ -1,16 +1,12 @@
 class Array
 
-  def my_inject(initial = 0)
+  def my_inject(initial = nil)
     copy = self.clone
-    if initial
-      memo = initial 
-    else
-      memo = 0
-    end
-
+    memo = (initial ? initial : copy.shift)
     copy.each do |item|
-      memo = yield memo, item
+      memo = yield(memo, item)
     end
     memo
   end
+
 end
