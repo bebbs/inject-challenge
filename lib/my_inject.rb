@@ -1,10 +1,12 @@
 class Array
 
-  def my_inject(initial = nil)
+  def my_inject(*args)
     copy = self.clone
-    memo = (initial ? initial : copy.shift)
-    copy.each do |item|
-      memo = yield(memo, item)
+    if args[0].is_a? Symbol || !args.any?
+      memo = (initial ? initial : copy.shift)
+      copy.each do |item|
+        memo = yield(memo, item)
+      end
     end
     memo
   end
