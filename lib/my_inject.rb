@@ -6,10 +6,9 @@ class Array
     temp, next_value = arr.shift, 0 if args[0].is_a?(Symbol) || args.empty?
     temp, next_value = args[0], 0 if !args[0].is_a?(Symbol) && !args[0].nil?
     args.map{|arg| block = arg.to_proc if arg.is_a?(Symbol)}
+    
     return temp if arr.empty?
-
-    block_result = block.call temp, arr[next_value]
-
+    block_result = block.call(temp, arr[next_value])
     arr.drop(1).my_rec_inject(block_result, args, &block)
   end
 
@@ -19,5 +18,9 @@ class Array
     temp = self[0] if args[0].is_a?(Symbol) || args.empty?
     temp = args[0] if !args[0].is_a?(Symbol) && !args[0].nil?
     args.map{|arg| block = arg.to_proc if arg.is_a?(Symbol)}
+
+    arr.shift if args[0].is_a?(Symbol) || args.empty?
+    arr.each {|x| temp = block.call temp, x}
+    temp
   end
 end
