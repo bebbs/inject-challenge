@@ -7,7 +7,6 @@ describe Array do
       expect([1,2,3,4].inject {|memo, item| memo + item}).to eq 10
       expect([1,2,3,4].my_rec_inject {|memo, item| memo + item}).to eq 10
       expect([1,2,3,4].my_itr_inject {|memo, item| memo + item}).to eq 10
-
     end
 
     it 'can minus numbers' do
@@ -35,6 +34,12 @@ describe Array do
       expect([1,2,3,4].my_rec_inject(:-)).to eq -8
       expect([1,2,3,4].my_itr_inject(:-)).to eq -8
     end
+
+    it 'can multiply numbers' do
+      expect([1,2,3,4].inject(:*)).to eq 24
+      expect([1,2,3,4].my_rec_inject(:*)).to eq 24
+      expect([1,2,3,4].my_itr_inject(:*)).to eq 24
+    end
   end
 
   context 'with an argument and block' do
@@ -58,7 +63,7 @@ describe Array do
     end
   end
 
-  context 'with a symbol argument' do
+  context 'with a symbol and argument' do
     it 'can add with a starting point and a symbol' do
       expect([1,2,3,4].inject(10, :+)).to eq 20
       expect([1,2,3,4].my_rec_inject(10, :+)).to eq 20
@@ -69,6 +74,12 @@ describe Array do
       expect([1,2,3,4].inject(10, :-)).to eq 0
       expect([1,2,3,4].my_rec_inject(10, :-)).to eq 0
       expect([1,2,3,4].my_itr_inject(10, :-)).to eq 0
+    end
+
+    it 'can multiply with a starting point and a symbol' do
+      expect([1,2,3,4].inject(10, :*)).to eq 240
+      expect([1,2,3,4].my_rec_inject(10, :*)).to eq 240
+      expect([1,2,3,4].my_itr_inject(10, :*)).to eq 240
     end
   end
 
