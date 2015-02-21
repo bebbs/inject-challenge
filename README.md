@@ -1,5 +1,7 @@
 Inject Challenge
 ================
+[![Code Climate](https://codeclimate.com/github/bebbs/inject-challenge/badges/gpa.svg)](https://codeclimate.com/github/bebbs/inject-challenge)
+[![Test Coverage](https://codeclimate.com/github/bebbs/inject-challenge/badges/coverage.svg)](https://codeclimate.com/github/bebbs/inject-challenge)
 
 An exercise in rewriting core Ruby kernel methods. The inject method is used to reduce the numbers in an array, by passing it either:
 
