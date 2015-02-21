@@ -11,6 +11,6 @@ An exercise in rewriting core Ruby kernel methods. The inject method is used to 
 `[1,2,3,4].inject(:*)`
 
 ##Solution
-Using recursion, I've replicated the behaviour of the inject method in a custom my_inject method.
+I've replicated the behaviour of the inject method using both recursion and iteration. The solution is fully tested using RSpec to ensure all edge cases are covered, and include expectations of the built in Ruby inject method for reference and comparison.
 
 
